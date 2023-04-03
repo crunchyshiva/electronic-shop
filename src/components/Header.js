@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <MainHeader>
       <NavLink to="/">
-      <img  className="logo" src="./images/logo2.png" alt="my logo image" />
+      <img  className="logo" src="./images/logo1.png" alt="my logo image" />
       </NavLink>
       <Nav />
     </MainHeader>
@@ -16,7 +16,7 @@ const Header = () => {
 const MainHeader = styled.header`
   padding: 0 4.8rem;
   height: 6.5rem;
-  background-color: #E0B0FF;
+  ${'' /* background-color: #E0B0FF; */}
   display: flex;
   justify-content: space-between;
   align-items: center;

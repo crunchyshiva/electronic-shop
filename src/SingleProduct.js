@@ -6,13 +6,12 @@ import PageNavigation from "./components/PageNavigation";
 import MyImage from "./components/MyImage";
 import { Container } from "./styles/Container";
 import FormatPrice from "./helper/FormatPrice";
-// import { MdSecurity } from "react-icons/md";
-// import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Free from "./components/images/free-delivery.png";
 import Replacement from "./components/images/replacement.png";
 import Ebazar from "./components/images/truck.gif";
 import Protect from "./components/images/Protect.gif"
 import Star from "./components/Star";
+import AddToCart from "./components/AddToCart";
 const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
@@ -56,7 +55,7 @@ const SingleProduct = () => {
           <div className="product-data">
             <h2>{name}</h2>
             <p>{stars}</p>
-            <p>{reviews} reviews</p>
+            <Star stars={stars} reviews={reviews} />
             <p className="product-data-real-price">
               Deal: <FormatPrice price={price} />
             </p>
@@ -90,20 +89,7 @@ const SingleProduct = () => {
               </div>
             </div>
 
-            {/* <div className="product-data-info">
-              <p>
-                Available:
-                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
-              </p>
-              <p>
-                ID : <span> {id} </span>
-              </p>
-              <p>
-                Brand :<span> {company} </span>
-              </p>
-            </div> */}
-          </div>
-          <div className="product-data-info">
+            <div className="product-data-info">
               <p>
                 Available:
                 <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
@@ -115,6 +101,22 @@ const SingleProduct = () => {
                 Brand :<span> {company} </span>
               </p>
             </div>
+            <hr />
+           {stock > 0 && <AddToCart product={singleProduct} />} 
+          </div>
+          {/* <div className="product-data-info">
+              <p>
+                Available:
+                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+              </p>
+              <p>
+                ID : <span> {id} </span>
+              </p>
+              <p>
+                Brand :<span> {company} </span>
+              </p>
+            </div> */}
+            
         </div>
       </Container>
     </Wrapper>
@@ -176,15 +178,14 @@ const Wrapper = styled.section`
       color: ${({ theme }) => theme.colors.btn};
       font-weight: bold;
       font-size:25px;
-      
     }
     
     hr {
-      max-width: 100%;
-      width: 90%;
-      height: 0.2rem; 
-      border: 0.1rem solid #000;
-      color: red;
+      ${'' /* max-width: 100%; */}
+      width: 100%;
+      ${'' /* height: 0.2rem;  */}
+      ${'' /* border: 0.1rem solid #000; */}
+      ${'' /* color: red; */}
     }
   }
   .product-images {
@@ -194,11 +195,11 @@ const Wrapper = styled.section`
     
   }
   .product-data-info {
-      margin-top:4rem;
+      ${'' /* margin-top:4rem; */}
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      border-style: dotted;
+      ${'' /* border-style: dotted; */}
       font-size: 1.8rem;
       span {
         font-weight: bold;

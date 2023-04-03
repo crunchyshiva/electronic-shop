@@ -92,6 +92,10 @@ font-weight: bold;
   font-size: 17px;
   line-height: 17px;
 }
+::selection{
+  color:#FFF;
+  background-color: blueviolet;
+}
 .example .content:hover {
   opacity: 1;
 }

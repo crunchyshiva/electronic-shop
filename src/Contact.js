@@ -8,7 +8,8 @@ const Contact = () => {
     padding: 5rem 0 5rem 0;
     
     .container {
-      padding:2rem;
+      padding-left:0.7rem;
+      padding-right:3rem;
       margin-top: 5rem;
       background:#d3d1d0;
        ${'' /* cards icons style */}
@@ -123,7 +124,7 @@ const Contact = () => {
           flex-direction: column;
           gap: 2rem;
 	        padding-left: 20px;
-        	padding-right: 20px;
+        	padding-right: 38px;
 
           input[type="submit"] {
             cursor: pointer;
@@ -136,16 +137,11 @@ const Contact = () => {
               border: 1px solid ${({ theme }) => theme.colors.btn};
               color: ${({ theme }) => theme.colors.btn};
               transform: scale(0.9);
-            }
-            
+            } 
           }
-          
         }
-        
       }
-      
     }
-   
   `;
 
   return <Wrapper>
