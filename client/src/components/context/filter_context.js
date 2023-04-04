@@ -1,4 +1,6 @@
-import { createContext, useContext, useReducer, useEffect, setListView, sorting } from "react";
+import { createContext, useContext, useReducer, useEffect} from "react";
+import  setListView  from "react";
+import  sorting  from "react";
 import { useProductContext } from "./productcontex";
 import reducer from "../reducer/filterReducer";
 
