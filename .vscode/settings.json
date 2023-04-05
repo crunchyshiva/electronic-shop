@@ -2,5 +2,14 @@
   "cSpell.words": ["filterproduct"],
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {},
-  "json.schemas": []
+  "json.schemas": [],
+  "reactSnippets.settings.prettierEnabled": true,
+  "prettier.bracketSameLine": true,
+  "prettier.enableDebugLogs": true,
+  "prettier.insertPragma": true,
+  "prettier.jsxSingleQuote": false,
+  "prettier.requirePragma": true,
+  "prettier.resolveGlobalModules": true,
+  "prettier.singleAttributePerLine": true,
+  "prettier.useTabs": true
 }

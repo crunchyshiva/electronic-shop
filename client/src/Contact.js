@@ -136,7 +136,7 @@ const Contact = () => {
               background-color: ${({ theme }) => theme.colors.white};
               border: 1px solid ${({ theme }) => theme.colors.btn};
               color: ${({ theme }) => theme.colors.btn};
-              transform: scale(0.9);
+              ${'' /* transform: scale(0.5); */}
             } 
           }
         }

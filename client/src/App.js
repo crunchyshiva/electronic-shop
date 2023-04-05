@@ -11,6 +11,7 @@ import { GlobalStyle } from './GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Signup from './components/signup/signup';
 const App = () => {
   const theme = {
     colors: {
@@ -55,6 +56,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<Products />} />
+          <Route path='/signup' element={<Signup/>}/>
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<ErrorPage />} />
           <Route path="/SingleProduct/:id" element={<SingleProduct />} />
