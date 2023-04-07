@@ -67,10 +67,11 @@ h3 {
 }
 
 p, button {
-  ${'' /* color: ${({ theme }) => theme.colors.text}; */}
+  color: ${({ theme }) => theme.colors.text};
   font-size: 1.65rem;
   line-height: 1.5;
   font-weight:400;
+  border-radius: 5px;
 }
 
 a {
@@ -141,12 +142,12 @@ ${"" /* resuable code section  */}
 
 input, textarea{
     max-width: 50rem;
-    ${'' /* border-radius:40px; */}
+    border-radius:40px;
     color: ${({ theme }) => theme.colors.black};
-    ${'' /* padding: 1.6rem 2.4rem; */}
+    padding: 1.6rem 2.4rem;
     border: 1px solid ${({ theme }) => theme.colors.border};
-    ${'' /* text-transform: uppercase; */}
-   box-shadow: ${({ theme }) => theme.colors.shadowSupport};
+    text-transform: uppercase;
+   ${'' /* box-shadow: ${({ theme }) => theme.colors.shadowSupport}; */}
 }
     input[type="submit"]{
     max-width: 16rem;
@@ -156,7 +157,6 @@ input, textarea{
     padding: 1.4rem 2.2rem;
     border-style: solid;
     border-width: .1rem;
-    
     text-transform: uppercase;
     font-size: 1.8rem;
     cursor: pointer;

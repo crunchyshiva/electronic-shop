@@ -1,0 +1,44 @@
+.login-container {
+  width: 300px;
+  margin: 5rem auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label {
+  margin-bottom: 10px;
+}
+
+.login-container input {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.login-checkbox input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.login-checkbox span {
+  cursor: pointer;
+  text-decoration: underline;
+}
