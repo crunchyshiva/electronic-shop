@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState ,useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
 import Cart from './Cart';
 import Products from './Products';
+import ProductByCategory from './ProductByCategory';
 import ErrorPage from './ErrorPage';
 import SingleProduct from './SingleProduct';
 import { GlobalStyle } from './GlobalStyle';
@@ -37,12 +38,12 @@ const App = () => {
     },
   };
 
-  const [data, setData] = React.useState(null);
+  const [categoryData, setCategoryData] = useState([]);
 
-  React.useEffect(() => {
-    fetch("/test")
+  useEffect(() => {
+    fetch("/api/category/products")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => setCategoryData(data.data));
   }, []);
 
   return (
@@ -50,12 +51,12 @@ const App = () => {
       <Router>
         <GlobalStyle />
         <Header />
-        <p>{!data ? "Loading..." : data}</p>
         <Routes> 
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home categoryData={categoryData} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/category/products" element={<ProductByCategory />} />
           <Route path='/signup' element={<Signup/>}/>
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<ErrorPage />} />

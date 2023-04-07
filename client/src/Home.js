@@ -3,7 +3,7 @@ import HeroSection from "./components/HeroSection";
 import Services from "./components/Services";
 import Trusted  from "./components/Trusted";
 import FeatureProduct from "./components/FeatureProduct";
-const Home = () => {
+const Home = (props) => {
   const data = {
     name: "E-bazar",
   };
@@ -13,7 +13,7 @@ const Home = () => {
        <div className="e-container">
        <HeroSection myData={data} />;
         </div>
-        <FeatureProduct/>
+        <FeatureProduct {...props}/>
       <Services/>
       <Trusted/>
     

@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Product from "./Product";
 import Loader from "./images/loader.gif"
 
-const FeatureProduct = () => {
+const FeatureProduct = (props) => {
   const { isLoading, featureProducts } = useProductContext();
+  const {categoryData} = props;
 
   if (isLoading) {
     return <img  className="img-loader" src={Loader} alt="loader" />
@@ -13,11 +14,10 @@ const FeatureProduct = () => {
   return (
     <Wrapper className="section">
       <div className="container">
-        {/* <div className="intro-data">Check Now!</div> */}
-        <div className="product-heading">PRODUCTS</div>
+        <div className="product-heading">Top Categories</div>
         <div className="grid grid-three-column">
-          {featureProducts.map((curElem) => {
-            return <Product key={curElem.id} {...curElem} />;
+          {categoryData.length > 0 && categoryData.map((curElem) => {
+            return <Product key={curElem?._id?.product_category} {...curElem} />;
           })}
         </div>
       </div>
