@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
+
 // import {FaHome} from "react-icons/fa"
 
 const Nav = () => {
@@ -35,6 +36,43 @@ const Nav = () => {
         }
       }
     }
+    
+    ${'' /* hover button css  */}
+    .dropbtn {
+  background-color: #7372CF;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #7372CF;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: dodgerblue;}
+
     .mobile-navbar-btn {
       display: none;
       background-color: transparent;
@@ -191,6 +229,14 @@ const Nav = () => {
               Signup
             </NavLink>
           </li>
+          <div className="dropdown">
+  <NavLink to="/login" className="dropbtn" onClick={() => setMenuIcon(false)}>Hi,Sign in</NavLink>
+  <div className="dropdown-content">
+    <a href="#">Sign Up</a>
+    <a href="#">Orders</a>
+    <a href="#">Log out</a>
+  </div>
+</div>
           <li>
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />

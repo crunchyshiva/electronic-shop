@@ -13,6 +13,7 @@ import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Signup from './components/signup/signup';
+import Login from './components/login/login';
 const App = () => {
   const theme = {
     colors: {
@@ -58,6 +59,7 @@ const App = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/category/products" element={<ProductByCategory />} />
           <Route path='/signup' element={<Signup/>}/>
+          <Route path='/login' element={<Login/>}/>
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<ErrorPage />} />
           <Route path="/SingleProduct/:id" element={<SingleProduct />} />

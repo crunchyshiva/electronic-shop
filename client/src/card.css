@@ -1,0 +1,130 @@
+/* Card container */
+.card-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* shopping heading */
+.shpping-heading{
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* Card header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Card item */
+.card-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.card-item:last-child {
+  border-bottom: none;
+}
+
+/* Item name */
+.item-name {
+  flex-basis: 40%;
+  font-weight: bold;
+}
+
+/* Item price */
+.item-price {
+  flex-basis: 20%;
+}
+
+/* Item quantity */
+.item-quantity {
+  flex-basis: 20%;
+}
+
+/* Item remove */
+.item-remove {
+  flex-basis: 20%;
+}
+
+/* Input field for quantity */
+.item-quantity input[type="number"] {
+  width: 40%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Remove button */
+.item-remove button {
+  padding: 5px 10px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Total section */
+.card-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* Total label */
+.total-label {
+  margin-right: 10px;
+}
+
+/* Total value */
+.total-value {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 480px) {
+  /* Card item */
+  .card-item {
+    flex-wrap: wrap;
+    padding: 10px 0;
+  }
+  
+  /* Item name */
+  .item-name {
+    flex-basis: 100%;
+    margin-bottom: 5px;
+  }
+  
+  /* Item price */
+  .item-price {
+    flex-basis: 50%;
+    margin-bottom: 5px;
+  }
+  
+  /* Item quantity */
+  .item-quantity {
+    flex-basis: 50%;
+    margin-bottom: 5px;
+  }
+  
+  /* Item remove */
+  .item-remove {
+    flex-basis: 100%;
+  }
+  
+  /* Input field for quantity */
+  .item-quantity input[type="number"] {
+    width: auto;
+  }
+}

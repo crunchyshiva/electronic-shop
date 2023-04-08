@@ -22,7 +22,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='signup-form' onSubmit={handleSubmit}>
       <h2>Sign Up</h2>
       <div className='signup-colunm'>
       <div className="form-group">
