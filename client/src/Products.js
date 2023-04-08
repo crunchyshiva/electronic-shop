@@ -50,7 +50,7 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className="product-container">
       <div className="sidebar">
         <h2>Filters</h2>
         <label>
