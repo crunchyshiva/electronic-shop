@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const User = require('./user');
-const Product = require('./product');
+
 const Schema = mongoose.Schema;
 
-const CartSchema = new Schema({
+const OrderSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: 'User' },
     products: [{
         product_id: {
@@ -48,14 +48,37 @@ const CartSchema = new Schema({
         type: String,
         required: true
     },
-    active: {
-        type: Boolean,
-        default: true
+    shipping_address:{
+        addres_line_1:{
+            type: String,
+            required: false
+        },
+        addres_line_2:{
+            type: String,
+            required: false
+        },
+        city:{
+            type: String,
+            required: true
+        },
+        district:{
+            type: String,
+            required: true
+        },
+        state:{
+            type: String,
+            required: true
+        },
+        pincode:{
+            type: String,
+            required: true
+        },
+
     },
-    modifiedOn: {
-        type: Date,
-        default: Date.now
+    payment_type:{
+        type: String,
+        required: true 
     }
 });
 
-module.exports = Cart = mongoose.model('cart', CartSchema);
+module.exports = Order = mongoose.model('order', OrderSchema);

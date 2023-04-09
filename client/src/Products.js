@@ -1,43 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 import products from './data/Product_data';
 import './components/ProductPage.css';
-import images from './components/images/hero.jpg'
+import images from './components/images/hero.jpg';
+import { useLocation } from "react-router-dom"
 
-function App() {
+
+function Products(curElem) {
+  const location = useLocation();
+  const [allCategory, setAllCategory] = useState([]);
+  const [AllproductByCategory, setAllProductByCategory] = useState([]);
+  const [productByCategory, setProductByCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [filter, setFilter] = useState('');
 
-  // const products = [
-  //   { 
-  //     name: 'Product 1',
-  //     price: 100, 
-  //     img: 'iron.png' 
-  //   },
-  //   { 
-  //     name: 'Product 2', 
-  //     price: 200, 
-  //     img: 'img2.jpg' 
-  //   },
-  //   { 
-  //     name: 'Product 3', 
-  //     price: 300, 
-  //     img: 'img3.jpg' 
-  //   },
-  //   { 
-  //     name: 'Product 4', 
-  //     price: 400, 
-  //     img: 'img4.jpg' 
-  //   },
-  //   { 
-  //     name: 'Product 5', 
-  //     price: 500, 
-  //     img: 'img5.jpg' 
-  //   },
-  //   { 
-  //     name: 'Product 6', 
-  //     price: 600, 
-  //     img: 'img6.jpg' 
-  //   },
-  // ];
+  useEffect(() => {
+    fetch("/api/category")
+      .then((res) => res.json())
+      .then((response) => setAllCategory(response.data));
+
+    if(location.state.selectedCategory){
+      setSelectedCategory(location.state.selectedCategory);
+      fetch("/api/category/products")
+      .then((res) => res.json())
+      .then((response) => {
+        setAllProductByCategory(response.data);
+        const productByCategory = response.data.length > 0 && response.data.find((item) => item?._id?.product_category === location.state.selectedCategory)
+        productByCategory?.products.length > 0 && setProductByCategory(productByCategory.products);
+      });
+    }
+
+  }, [])
 
   const filteredProducts = filter
     ? products.filter((p) =>
@@ -49,9 +42,30 @@ function App() {
     setFilter(event.target.value);
   };
 
+  const handleChangeCategory = (data) => {
+    setSelectedCategory(data.product_category);
+    const productByCategory = AllproductByCategory.length > 0 && AllproductByCategory.find((item) => item?._id?.product_category === data.product_category)
+    productByCategory?.products.length > 0 && setProductByCategory(productByCategory.products);
+
+  };
+
   return (
     <div className="product-container">
       <div className="sidebar">
+        <h2>Categories</h2>
+        {allCategory.length > 0 && allCategory.map((item,key) =>
+          <label key={key}>
+            <input
+              type="radio"
+              value=""
+              checked={item.product_category === selectedCategory}
+              onChange={() => handleChangeCategory(item)}
+            />
+          {item.product_category}
+        </label>
+        )}
+      </div>
+      {/* <div className="sidebar">
         <h2>Filters</h2>
         <label>
           <input
@@ -80,9 +94,20 @@ function App() {
           />
           High to low price
         </label>
-      </div>
+      </div> */}
       <div className="main-content">
-        <div className="row">
+        {productByCategory.length > 0 && productByCategory.map((item,key) =>
+            <div className="row">
+              <NavLink to={`/SingleProduct/:${item.product_id}`} state={{data:item}}>
+                <div key={key} className="product">
+                  <img src={`/images/product/${item.product_master_image}.png`} alt={item.product_name} />
+                  <h3>{item.product_name}</h3>
+                  <p>{item.discounted_price} ₹</p>
+                </div>
+              </NavLink>
+            </div> 
+        )}
+        {/* <div className="row">
           {filteredProducts.slice(0, 2).map((product) => (
             <div key={product.name} className="product">
               <img src={images} alt={product.name} />
@@ -108,11 +133,11 @@ function App() {
               <p>{product.price} ₹</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
 }
 
-export default App;
+export default Products;
 

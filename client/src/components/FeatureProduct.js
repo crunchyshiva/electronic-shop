@@ -10,14 +10,13 @@ const FeatureProduct = (props) => {
   if (isLoading) {
     return <img  className="img-loader" src={Loader} alt="loader" />
   }
-
   return (
     <Wrapper className="section">
       <div className="container">
         <div className="product-heading">Top Categories</div>
         <div className="grid grid-three-column">
           {categoryData.length > 0 && categoryData.map((curElem) => {
-            return <Product key={curElem?._id?.product_category} {...curElem} />;
+            return <Product key={curElem?._id} {...curElem} />;
           })}
         </div>
       </div>
