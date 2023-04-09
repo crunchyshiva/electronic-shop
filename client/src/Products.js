@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 import products from './data/Product_data';
 import './components/ProductPage.css';
 import images from './components/images/hero.jpg';
@@ -97,11 +98,13 @@ function Products(curElem) {
       <div className="main-content">
         {productByCategory.length > 0 && productByCategory.map((item,key) =>
             <div className="row">
+              <NavLink to={`/SingleProduct/:${item.product_id}`} state={{data:item}}>
                 <div key={key} className="product">
                   <img src={`/images/product/${item.product_master_image}.png`} alt={item.product_name} />
                   <h3>{item.product_name}</h3>
                   <p>{item.discounted_price} ₹</p>
                 </div>
+              </NavLink>
             </div> 
         )}
         {/* <div className="row">

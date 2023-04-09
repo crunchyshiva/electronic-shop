@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect ,useState} from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom"
 import { useProductContext } from "./components/context/productcontex";
 import PageNavigation from "./components/PageNavigation";
 import MyImage from "./components/MyImage";
@@ -15,9 +16,10 @@ import AddToCart from "./components/AddToCart";
 const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
+  const location = useLocation();
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
-
+  const [productDetails, setProductDetails] = useState({});
   const { id } = useParams();
 
   const {
@@ -34,13 +36,15 @@ const SingleProduct = () => {
   } = singleProduct;
 
   useEffect(() => {
+    if(location.state.data){
+       setProductDetails(location.state.data)
+    }
     getSingleProduct(`${API}?id=${id}`);
   }, []);
 
   if (isSingleLoading) {
     return <div className="page_loading">Loading.....</div>;
   }
-
   return (
     <Wrapper>
       <PageNavigation title={name} />
@@ -48,25 +52,28 @@ const SingleProduct = () => {
         <div className="grid grid-three-column">
           {/* product Images  */}
           <div className="product_images">
-            <MyImage imgs={image} />
+            {/* <MyImage imgs={image} /> */}
+            <img src={`/images/product/${productDetails?.product_master_image}.png`} alt={productDetails?.product_name} />
           </div>
 
           {/* product data  */}
           <div className="product-data">
-            <h2>{name}</h2>
-            <p>{stars}</p>
-            <Star stars={stars} reviews={reviews} />
+            <h2>{productDetails?.product_name}</h2>
+            <p>{productDetails?.rating}</p>
+            <Star stars={productDetails?.rating} reviews={reviews} />
             <p className="product-data-real-price">
-              Deal: <FormatPrice price={price} />
+              Deal: {productDetails?.discounted_price} 
             </p>
             <p className="product-data-price">
               M.R.P:
               <del>
-                <FormatPrice price={price + 250000} />
+                {productDetails?.actual_price} 
               </del>
+              &nbsp; &nbsp;({
+              Math.round(((productDetails?.actual_price - productDetails?.discounted_price)/productDetails?.actual_price)*100)}% Off)
             </p>
             <p>Inclusive of all taxes</p>
-            <p className="description">{description}</p>
+            <p className="description">{productDetails?.product_desc}</p>
             <div className="product-data-warranty">
               <div className="product-warranty-data">
               <img src={Free} className="warranty-icon" />;
@@ -85,20 +92,20 @@ const SingleProduct = () => {
 
               <div className="product-warranty-data">
                 <img src={Protect} className="warranty-icon" />
-                <p>2 Year Warranty </p>
+                <p>{productDetails?.warranty} Year Warranty </p>
               </div>
             </div>
 
             <div className="product-data-info">
               <p>
                 Available:
-                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+                <span> {productDetails?.availability}</span>
               </p>
               <p>
-                ID : <span> {id} </span>
+                ID : <span> {productDetails?.product_id} </span>
               </p>
               <p>
-                Brand :<span> {company} </span>
+                Brand :<span> {productDetails?.brand} </span>
               </p>
             </div>
             <hr />
