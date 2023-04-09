@@ -132,7 +132,7 @@ const SingleProduct = () => {
 
 const Wrapper = styled.section`
   .container {
-    padding-left: 1px;
+    padding-left: 30px;
   }
   .product_images {
     display: flex;
