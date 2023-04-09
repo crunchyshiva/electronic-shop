@@ -53,6 +53,10 @@ const CardPage = () => {
         <div className="total-label">Total:</div>
         <div className="total-value">₹{calculateTotal()}</div>
       </div>
+      <div className="order-btn">
+  <button>Place Order</button>
+</div>
+
     </div>
   );
 };
