@@ -98,7 +98,7 @@ function Products(curElem) {
       <div className="main-content">
         {productByCategory.length > 0 && productByCategory.map((item,key) =>
             <div className="row">
-              <NavLink to={`/SingleProduct/:${item.product_id}`} state={{data:item}}>
+              <NavLink to={`/SingleProduct/${item.product_id}`} state={{data:item}}>
                 <div key={key} className="product">
                   <img src={`/images/product/${item.product_master_image}.png`} alt={item.product_name} />
                   <h3>{item.product_name}</h3>
