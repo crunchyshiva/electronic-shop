@@ -5,7 +5,6 @@ import About from './About';
 import Contact from './Contact';
 import Cart from './Cart';
 import Products from './Products';
-import ProductByCategory from './ProductByCategory';
 import ErrorPage from './ErrorPage';
 import SingleProduct from './SingleProduct';
 import { GlobalStyle } from './GlobalStyle';
@@ -42,7 +41,7 @@ const App = () => {
   const [categoryData, setCategoryData] = useState([]);
 
   useEffect(() => {
-    fetch("/api/category/products")
+    fetch("/api/category")
       .then((res) => res.json())
       .then((data) => setCategoryData(data.data));
   }, []);
@@ -57,7 +56,6 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/category/products" element={<ProductByCategory />} />
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path="/cart" element={<Cart />} />

@@ -26,6 +26,7 @@ exports.getCategory = (req,res) => {
 	});
 }
 
+
 exports.getProduct = (req,res) => {
 	const {id} = req.query
 	Product

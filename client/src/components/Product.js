@@ -3,10 +3,9 @@ import { NavLink } from "react-router-dom";
 import FormatPrice from "../helper/FormatPrice";
 
 const Product = (curElem) => {
-  const {product_category,product_category_img} = curElem._id;
-  const {products} = curElem;
+  const {product_category,product_category_img} = curElem;
   return (
-    <NavLink to='/category/products' state={{data:products}}>
+    <NavLink to='/products' state={{selectedCategory:product_category}}>
       <div className="card">
         <figure>
           <img src={`/images/product/${product_category_img}.png`} alt={product_category} />
