@@ -142,7 +142,7 @@ ${"" /* resuable code section  */}
 
 input, textarea{
     max-width: 50rem;
-    border-radius:40px;
+    ${'' /* border-radius:40px; */}
     color: ${({ theme }) => theme.colors.black};
     padding: 1.6rem 2.4rem;
     border: 1px solid ${({ theme }) => theme.colors.border};

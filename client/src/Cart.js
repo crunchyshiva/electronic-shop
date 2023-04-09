@@ -3,9 +3,9 @@ import '../src/card.css';
 
 const CardPage = () => {
   const [items, setItems] = useState([
-    { id: 1, name: 'Product 1', price: 10, quantity: 1 },
-    { id: 2, name: 'Product 2', price: 20, quantity: 1 },
-    { id: 3, name: 'Product 3', price: 30, quantity: 1 },
+    { id: 1, name: 'Product 1', price: 20, quantity: 1 },
+    { id: 2, name: 'Product 2', price: 40, quantity: 1 },
+    { id: 3, name: 'Product 3', price: 70, quantity: 1 },
   ]);
 
   const removeItem = (id) => {
@@ -20,7 +20,7 @@ const CardPage = () => {
 
   return (
     <div className="card-container">
-      <h1 className='shpping-heading'>Your Shopping Cart</h1>
+      <h1 className='shpping-heading'>Shopping Cart</h1>
       <div className="card-header">
         <div className="item-name">Item</div>
         <div className="item-price">Price</div>
@@ -30,7 +30,7 @@ const CardPage = () => {
       {items.map((item) => (
         <div className="card-item" key={item.id}>
           <div className="item-name">{item.name}</div>
-          <div className="item-price">${item.price.toFixed(2)}</div>
+          <div className="item-price">₹{item.price.toFixed(2)}</div>
           <div className="item-quantity">
             <input
               type="number"
@@ -51,7 +51,7 @@ const CardPage = () => {
       ))}
       <div className="card-total">
         <div className="total-label">Total:</div>
-        <div className="total-value">${calculateTotal()}</div>
+        <div className="total-value">₹{calculateTotal()}</div>
       </div>
     </div>
   );

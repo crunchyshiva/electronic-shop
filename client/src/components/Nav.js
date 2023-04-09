@@ -204,6 +204,15 @@ const Nav = () => {
               About
             </NavLink>
           </li>
+
+          <li>
+            <NavLink
+              to="/address"
+              className="navbar-link "
+              onClick={() => setMenuIcon(false)}>
+              Address
+            </NavLink>
+          </li>
          
           <li>
             <NavLink

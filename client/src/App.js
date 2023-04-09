@@ -14,6 +14,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Signup from './components/signup/signup';
 import Login from './components/login/login';
+import AddressPage from './Address_Page/Address';
 const App = () => {
   const theme = {
     colors: {
@@ -55,6 +56,7 @@ const App = () => {
         <Routes> 
           <Route path="/" element={<Home categoryData={categoryData} />} />
           <Route path="/about" element={<About />} />
+          <Route path="/address" element={<AddressPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<Products />} />
           <Route path="/category/products" element={<ProductByCategory />} />
