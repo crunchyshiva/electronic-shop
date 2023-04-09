@@ -36,7 +36,7 @@ const SingleProduct = () => {
   } = singleProduct;
 
   useEffect(() => {
-    if(location.state.data){
+    if(location?.state?.data){
        setProductDetails(location.state.data)
     }
     getSingleProduct(`${API}?id=${id}`);
@@ -45,6 +45,7 @@ const SingleProduct = () => {
   if (isSingleLoading) {
     return <div className="page_loading">Loading.....</div>;
   }
+  console.log(productDetails,'productDetails')
   return (
     <Wrapper>
       <PageNavigation title={name} />
@@ -109,7 +110,7 @@ const SingleProduct = () => {
               </p>
             </div>
             <hr />
-           {stock > 0 && <AddToCart product={singleProduct} />} 
+           {productDetails.availability === 'In Stock' && <AddToCart product={productDetails} />} 
           </div>
           {/* <div className="product-data-info">
               <p>

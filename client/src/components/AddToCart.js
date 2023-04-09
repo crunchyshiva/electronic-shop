@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
 
 const AddToCart = ({ product }) => {
-  const { colors, stock } = product;
+  const { colors } = product;
 
   const [color, setColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
@@ -16,7 +16,7 @@ const AddToCart = ({ product }) => {
   };
 
   const setIncrease = () => {
-    amount < stock ? setAmount(amount + 1) : setAmount(stock);
+    setAmount(amount + 1) 
   };
 
   return (
@@ -24,7 +24,7 @@ const AddToCart = ({ product }) => {
       <div className="colors">
         <p>
           Color:
-          {colors.map((curColor, index) => {
+          {colors.length > 0 && colors.map((curColor, index) => {
             return (
               <button
                 key={index}
