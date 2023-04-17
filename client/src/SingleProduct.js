@@ -45,7 +45,6 @@ const SingleProduct = () => {
   if (isSingleLoading) {
     return <div className="page_loading">Loading.....</div>;
   }
-  console.log(productDetails,'productDetails')
   return (
     <Wrapper>
       <PageNavigation title={name} />

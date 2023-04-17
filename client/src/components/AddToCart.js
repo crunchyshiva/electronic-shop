@@ -19,6 +19,23 @@ const AddToCart = ({ product }) => {
     setAmount(amount + 1) 
   };
 
+  const addToCart = (product) => {
+    const data = {
+      userId:'642c4e09f4d1093338494efd',
+      ...product
+    }
+    fetch("/api/cart",{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then((res) => res.json())
+    .then((response) => response);
+  }
+
   return (
     <Wrapper>
       <div className="colors">
@@ -45,8 +62,8 @@ const AddToCart = ({ product }) => {
         setIncrease={setIncrease}
       />
 
-      <NavLink to="/cart">
-        <Button className="btn">Add To Cart</Button>
+      <NavLink to="/cart" state={{userId:'642c4e09f4d1093338494efd'}}>
+        <Button className="btn" onClick={() => addToCart(product)}>Add To Cart</Button>
       </NavLink>
     </Wrapper>
   );
