@@ -94,7 +94,6 @@
 }
 
 /* button css */
-
 .order-btn {
   display: flex;
   /* justify-content: center; */
@@ -119,7 +118,7 @@
   
   /* Item name */
   .item-name {
-    flex-basis: 100%;
+    flex-basis: 50%;
     margin-bottom: 5px;
   }
   
@@ -137,11 +136,11 @@
   
   /* Item remove */
   .item-remove {
-    flex-basis: 100%;
+    flex-basis: 50%;
   }
   
   /* Input field for quantity */
   .item-quantity input[type="number"] {
-    width: auto;
+    width: 30%;
   }
 }

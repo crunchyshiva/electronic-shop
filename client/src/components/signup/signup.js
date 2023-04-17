@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './signup.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faEnvelope, faMobileAlt, faLock } from '@fortawesome/free-solid-svg-icons';
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -25,32 +27,32 @@ const SignUpForm = () => {
     <form className='signup-form' onSubmit={handleSubmit}>
       <h2>Sign Up</h2>
       <div className='signup-colunm'>
-      <div className="form-group">
-        <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label htmlFor="firstName"><FontAwesomeIcon icon={faUser} /> First Name:</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
+        <div className="form-group">
+          <label htmlFor="lastName"><FontAwesomeIcon icon={faUser} /> Last Name:</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </div>
       </div>
-      </div>
       <div className="form-group">
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email"><FontAwesomeIcon icon={faEnvelope} /> Email:</label>
         <input
           type="email"
           id="email"
@@ -62,7 +64,7 @@ const SignUpForm = () => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="mobile">Mobile Number:</label>
+        <label htmlFor="mobile"><FontAwesomeIcon icon={faMobileAlt} /> Mobile Number:</label>
         <input
           type="tel"
           id="mobile"
@@ -74,7 +76,7 @@ const SignUpForm = () => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password"><FontAwesomeIcon icon={faLock} /> Password:</label>
         <input
           type="password"
           id="password"
@@ -87,7 +89,7 @@ const SignUpForm = () => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="confirmPassword">Confirm Password:</label>
+        <label htmlFor="confirmPassword"><FontAwesomeIcon icon={faLock} /> Confirm Password:</label>
         <input
           type="password"
           id="confirmPassword"

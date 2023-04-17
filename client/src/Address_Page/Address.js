@@ -36,7 +36,11 @@ const AddressDetails = () => {
   const handlePincodeChange = (e) => {
     setPincode(e.target.value);
   };
+  const [isChecked, setIsChecked] = useState(false);
 
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  }
   const handleCashOnDeliveryChange = (e) => {
     setIsCashOnDelivery(e.target.checked);
   };
@@ -56,10 +60,10 @@ const AddressDetails = () => {
     {showPopup && (
       <div className="popup-container">
         <div className="popup">
-          <h2>Order Placed Successfully!</h2>
-          <button className="popup-button" onClick={handleClosePopup}>
-            Close
-          </button>
+          <h2 className='popup-msg'>Order Placed Successfully!</h2>
+          <span className="popup-button" onClick={handleClosePopup}>
+          X
+          </span>
         </div>
       </div>
     )}
@@ -68,23 +72,23 @@ const AddressDetails = () => {
     <div className="address-form-container">
       <h2 className="address-form-header">Shipping Address</h2>
       <form className="address-form">
-        <div className="form-group">
+        <div className="address-form-group">
           <label className="form-label" htmlFor="username">Username</label>
-          <input className="form-input" type="text" id="username" value={username} onChange={handleUsernameChange} />
+          <input className="address-form-input" type="text" placeholder='Username' id="username" value={username} onChange={handleUsernameChange} />
         </div>
-        <div className="form-group">
+        <div className="address-form-group">
           <label className="form-label" htmlFor="address-line-1">Address Line 1</label>
-          <input className="form-input" type="text" id="address-line-1" value={addressLine1} onChange={handleAddressLine1Change} />
+          <input className="address-form-input" type="text" placeholder='Street, Building name' id="address-line-1" value={addressLine1} onChange={handleAddressLine1Change} />
         </div>
-        <div className="form-group">
+        <div className="address-form-group">
           <label className="form-label" htmlFor="address-line-2">Address Line 2</label>
-          <input className="form-input" type="text" id="address-line-2" value={addressLine2} onChange={handleAddressLine2Change} />
+          <input className="address-form-input" type="text" placeholder='Landmark' id="address-line-2" value={addressLine2} onChange={handleAddressLine2Change} />
         </div>
-        <div className="form-group">
+        <div className="address-form-group">
           <label className="form-label" htmlFor="city">City</label>
-          <input className="form-input" type="text" id="city" value={city} onChange={handleCityChange} />
+          <input className="address-form-input" type="text" placeholder='City name' id="city" value={city} onChange={handleCityChange} />
         </div>
-        <div className="form-group">
+        <div className="address-form-group">
           <label className="form-label" htmlFor="state">State</label>
           <select className="form-select" id="state" value={state} onChange={handleStateChange}>
             <option disabled>Select State</option>
@@ -95,14 +99,28 @@ const AddressDetails = () => {
             ))}
           </select>
         </div>
-        <div className="form-group">
+        <div className="address-form-group">
           <label className="form-label" htmlFor="pincode">Pincode</label>
-          <input className="form-input" type="text" id="pincode" value={pincode} onChange={handlePincodeChange} />
+          <input className="address-form-input" type="text" placeholder='Area pincode' id="pincode" value={pincode} onChange={handlePincodeChange} />
         </div>
-        <div className="form-group">
+        
+        {/* THIS IS THE CHECK BOX AREA */}
+        <div className="checkbox-container">
+      <input
+        className="checkbox-input"
+        type="checkbox"
+        id="my-checkbox"
+        checked={isChecked}
+        onChange={handleCheckboxChange}
+      />
+      <label className="checkbox-label" htmlFor="my-checkbox">
+        Cash-on-delivery
+      </label>
+    </div>
+        {/* <div className="form-group">
+        <input className="form-checkbox" type="checkbox" id="cash-on-delivery" checked={isCashOnDelivery} onChange={handleCashOnDeliveryChange} />
           <label className="form-label" htmlFor="cash-on-delivery">Cash on Delivery</label>
-          <input className="form-checkbox" type="checkbox" id="cash-on-delivery" checked={isCashOnDelivery} onChange={handleCashOnDeliveryChange} />
-        </div>
+        </div> */}
         <button className="place-order-btn" onClick={handlePlaceOrder}>
           Place Order
         </button>
@@ -112,16 +130,20 @@ const AddressDetails = () => {
       <h2 className="order-summary-header">Order Summary</h2>
       <div className="price-details-container">
         <div className="price-detail-container">
-          <span className="price-detail-label">Product Price</span>
-          <span className="price-detail-value">$100.00</span>
+          <span className="price-detail-label">Sub Total</span>
+          <span className="price-detail-value">₹200.00</span>
         </div>
         <div className="price-detail-container">
-          <span className="price-detail-label">Tax Price</span>
-          <span className="price-detail-value">$10.00</span>
+        <span className="price-detail-label">Discount</span>
+          <span className="price-detail-value">₹100.00</span>
         </div>
         <div className="price-detail-container">
-          <span className="price-detail-label">Total Price</span>
-          <span className="price-detail-value">$110.00</span>
+          <span className="price-detail-label">Tax&Charges</span>
+          <span className="price-detail-value">₹10.00</span>
+        </div>
+        <div className="price-detail-container">
+          <span className="price-detail-label">Grand Total</span>
+          <span className="price-detail-value">₹110.00</span>
         </div>
       </div>
     </div>

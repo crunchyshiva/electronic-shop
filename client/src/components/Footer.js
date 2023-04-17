@@ -4,37 +4,20 @@ import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
 import { FaAddressCard,FaPhoneSquareAlt,FaFacebook,FaLinkedinIn,FaInstagram,FaYoutube } from "react-icons/fa";
 import {HiOutlineMail} from "react-icons/hi"
+import logo from "../components/images/logo.png"
 const Footer = () => {
   return (
     <>
     <Wrapper>
-      <section className="contact-short">
-        <div className="grid grid-two-column">
-          <div>
-            <h3>Ready to get started?</h3>
-            <h3>Talk to us today</h3>
-          </div>
-          <div>
-            <Button className="btn hireme-btn">
-              <NavLink to="/"> Get Started </NavLink>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* footer section */}
-
       <footer>
         <div className="container grid grid-four-column">
           <div className="footer-about">
-            <h3 className="footer-logo">E-bazar</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+            <img className="footer-logo" src={logo}/>
           </div>
           <div className="footer-subscribe">
             <h3>Subscribe to get important updates</h3>
             <form action="#">
               <input type="email" name="email" placeholder="YOUR E-MAIL" />
-
               <input type="submit" value="subscribe" />
             </form>
           </div>
@@ -75,7 +58,7 @@ const Footer = () => {
           <FaPhoneSquareAlt className="footer-call" />
             <h3 className="footer-cal">9368208516</h3>
             <div className="crunchy">
-            <p className="footer-gmail"><HiOutlineMail className="footer-email" />crunchyshiva@gmail.com</p>
+            <p className="footer-gmail"><HiOutlineMail className="footer-email" />CRUNCHYSHIVA@GMAIL.COM</p>
           </div><br />
           <div className="footer-adress">
           <FaAddressCard className="footer-address" />
@@ -102,41 +85,21 @@ const Footer = () => {
 };
 
 const Wrapper = styled.section`
-.iSIFGq {
-  margin: 0;
-}
-.contact-short {
-  max-width: 60vw;
-  margin: auto;
-  padding: 3rem 10rem;
-  background-color: ${({ theme }) => theme.colors.bg};
-  border-radius: 1rem;
-  box-shadow: ${({ theme }) => theme.colors.shadowSupport};
-  transform: translateY(50%);
-  .grid div:last-child {
-    justify-self: end;
-    align-self: center;
-  }
-}
 footer {
   display:grid;
-  padding: 11rem 0 9rem 0;
+  margin:5rem 5rem 0 5rem;
+  padding: 5rem 2rem 5rem 2rem;
+  border-radius:2rem 2rem 0 0;
   background-color: #1f405a;
   h3 {
     color: ${({ theme }) => theme.colors.hr};
     margin-bottom: 1rem;
   }
+  
   .footer-logo{
-    font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to right, #f32170,
-                    #ff6b08, #cf23cf, #eedd44);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    animation: mymove 5s infinite;
-    @keyframes mymove {
-  50% {text-shadow: 10px 20px 30px purple;}
-}
+    width:50%;
+    height:40%;
+    border-radius:2rem;
   }
   p {
     color: ${({ theme }) => theme.colors.white};
@@ -216,7 +179,7 @@ footer {
         background: #3A5795; 
       }
   }
-  .footer-call{
+     .footer-call{
         color:white;
         background-color:green;
         font-size:2.5rem;
@@ -227,8 +190,7 @@ footer {
       
       .footer-cal{
         font-size:18px;
-        text-indent: 8px;
-        ${'' /* text-align:center; */}
+        text-indent: 5px;
       }
 
       .footer-email{
@@ -250,41 +212,58 @@ footer {
         color:#947185;
         background-color:white; 
         font-size:2.5rem;
-        position: relative;
         border-radius: 25%;
         float:left;
       }
 
       .footer-addres{
         font-size:14px;
-        text-indent: -6px;
         text-align:center;
       }
 }
-.footer-bottom--section {
-  padding-top: 3rem;
-  hr {
-    margin-bottom: 0;
-    color: ${({ theme }) => theme.colors.hr};
-    height: 0;
+      .footer-bottom--section {
+        padding-top: 3rem;
+      hr {
+        margin-bottom: 0;
+        color: ${({ theme }) => theme.colors.hr};
+        height: 0;
   }
 }
-@media only screen and (max-width: 820px) {
-  .contact-short {
-    max-width: 80vw;
-    margin: 4.8rem auto;
-    transform: translateY(0%);
-    text-align: center;
-    .grid div:last-child {
-      justify-self: center;
-    }
-  }
-  footer {
-    padding: 9rem 0 9rem 0; 
+@media (max-width: 768px) {
+footer {
+display: block;
+margin: 2rem 0;
+padding: 2rem;
+text-align: justify;
+.footer-logo {
+  width: 45%;
+  height: auto;
+  margin: 0 auto;
+}
+}
+}
+
+.footer-social--icons {
+  margin: 2rem 0;
+  justify-content: justify;
+  
+  .icons1, .icons2, .icons3, .icons4 {
+    font-size: 3rem;
+    border-radius: 50%;
+    padding: 0.5rem;
   }
   
-  .footer-bottom--section {
-    padding-top: 4.8rem;
+  #facebook:hover, #instagram:hover, #youtube:hover, #linkedin:hover {
+    background: none;
+  }
+  
+}
+
+.footer-bottom--section {
+  padding-top: 2rem;
+  
+  hr {
+    margin: 0 auto;
   }
 }
 `;

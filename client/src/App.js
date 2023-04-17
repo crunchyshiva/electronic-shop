@@ -1,10 +1,12 @@
 import React, {useState ,useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
 import Cart from './Cart';
-import Products from './Products';
+import Products from '../src/all_products_page/Products';
 import ErrorPage from './ErrorPage';
 import SingleProduct from './SingleProduct';
 import { GlobalStyle } from './GlobalStyle';

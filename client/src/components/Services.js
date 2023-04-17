@@ -42,23 +42,23 @@ const Services = () => {
 
 const Wrapper = styled.section`
   padding: 4rem 0;
+  margin-left:2rem;
   .grid {
     gap: 4.8rem;
   }
   .services-1,
   .services-2,
   .services-3 {
-    max-width:90%;
+    max-width:95%;
     height: 25rem;
     display: flex;
-    ${'' /* margin-top:-10rem; */}
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    background-color:#CF9FFF;
+    background-color:#f2eae3;
     text-align: center;
     border-radius: 2rem;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0.5px 0.5px 0 rgba(0.5, 0, 0, 0.5), 0 3px 10px 0 rgba(0.5, 0, 0, 0.15);
   }
   
   .services-2 {
@@ -66,14 +66,14 @@ const Wrapper = styled.section`
     background-color: transparent;
     box-shadow: none;
     .services-colum-2 {
-     background-color:#CF9FFF;
+     background-color:#f2eae3;
       display: flex;
       flex-direction: row;
       flex: 1;
       justify-content: center;
       align-items: center;
       border-radius: 2rem;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      box-shadow: 0 0.5px 0.5px 0 rgba(0.5, 0, 0, 0.5), 0 3px 10px 0 rgba(0.5, 0, 0, 0.15);
       div {
         display: flex;
         flex-direction: row;

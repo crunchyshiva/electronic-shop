@@ -52,25 +52,20 @@ function Login() {
     <div className="login-container">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={handleUsernameChange} required />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={handlePasswordChange} required />
-        </label>
+        <label htmlFor="username">Username:</label>
+        <input type="text" id="username" value={username} onChange={handleUsernameChange} required />
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" value={password} onChange={handlePasswordChange} required />
         <div className="login-checkbox">
           <label>
             <input type="checkbox" checked={remember} onChange={handleRememberChange} />
-            Remember Me
+            <span>Remember Me</span>
           </label>
-          <span onClick={handleForgotPassword}>Forgot Password?</span>
+          <span className="forgot-password" onClick={handleForgotPassword}>Forgot Password?</span>
         </div>
         <button type="submit">Login</button>
-        <div>
-          <p>New User? Please Sign up</p>
-          <a className =""href="#">Sign Up</a>
+        <div className="signup">
+          <p>New User? Please <a href="#">Sign up</a></p>
         </div>
       </form>
     </div>

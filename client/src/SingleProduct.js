@@ -6,14 +6,12 @@ import { useProductContext } from "./components/context/productcontex";
 import PageNavigation from "./components/PageNavigation";
 import MyImage from "./components/MyImage";
 import { Container } from "./styles/Container";
-import FormatPrice from "./helper/FormatPrice";
 import Free from "./components/images/free-delivery.png";
 import Replacement from "./components/images/replacement.png";
 import Ebazar from "./components/images/truck.gif";
 import Protect from "./components/images/Protect.gif"
 import Star from "./components/Star";
 import AddToCart from "./components/AddToCart";
-const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
   const location = useLocation();
@@ -39,7 +37,6 @@ const SingleProduct = () => {
     if(location?.state?.data){
        setProductDetails(location.state.data)
     }
-    getSingleProduct(`${API}?id=${id}`);
   }, []);
 
   if (isSingleLoading) {
@@ -55,10 +52,9 @@ const SingleProduct = () => {
             {/* <MyImage imgs={image} /> */}
             <img src={`/images/product/${productDetails?.product_master_image}.png`} alt={productDetails?.product_name} />
           </div>
-
           {/* product data  */}
           <div className="product-data">
-            <h2>{productDetails?.product_name}</h2>
+            <p className="product-name-heading">{productDetails?.product_name}</p>
             <p>{productDetails?.rating}</p>
             <Star stars={productDetails?.rating} reviews={reviews} />
             <p className="product-data-real-price">
@@ -76,7 +72,7 @@ const SingleProduct = () => {
             <p className="description">{productDetails?.product_desc}</p>
             <div className="product-data-warranty">
               <div className="product-warranty-data">
-              <img src={Free} className="warranty-icon" />;
+              <img src={Free} className="warranty-icon" />
                 <p>Free Delivery</p>
               </div>
 
@@ -110,20 +106,7 @@ const SingleProduct = () => {
             </div>
             <hr />
            {productDetails.availability === 'In Stock' && <AddToCart product={productDetails} />} 
-          </div>
-          {/* <div className="product-data-info">
-              <p>
-                Available:
-                <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
-              </p>
-              <p>
-                ID : <span> {id} </span>
-              </p>
-              <p>
-                Brand :<span> {company} </span>
-              </p>
-            </div> */}
-            
+          </div>      
         </div>
       </Container>
     </Wrapper>
@@ -132,7 +115,7 @@ const SingleProduct = () => {
 
 const Wrapper = styled.section`
   .container {
-    padding-left: 30px;
+    padding-left: 10rem;
   }
   .product_images {
     display: flex;
@@ -147,7 +130,12 @@ const Wrapper = styled.section`
     align-items: flex-start;
     justify-content: center;
     gap: 0.5rem;
-
+     
+     ${'' /* PRODUCTS HEADING STYLE */}
+    .product-name-heading {
+      font-size:2.5rem;
+      font-weight: bold;
+    }
     .description{
       text-align:justify;
       border-top: 1px solid #ccc;
@@ -160,9 +148,10 @@ const Wrapper = styled.section`
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #ccc;
-      ${'' /* margin-bottom: 1rem; */}
+
       .product-warranty-data {
         text-align: center;
+
         .warranty-icon {
           background-color: rgba(220, 220, 220, 0.5);
           border-radius: 30%;
@@ -170,17 +159,19 @@ const Wrapper = styled.section`
           height: 65px;
           padding: 0.6rem;
         }
+
         p {
           font-size: 1.4rem;
           padding-top: 0.4rem;
         }
       }
     }
+
     .product-data-price {
       font-size:12px;
       font-weight: bold;
-      
     }
+
     .product-data-real-price {
       color: ${({ theme }) => theme.colors.btn};
       font-weight: bold;
@@ -188,44 +179,53 @@ const Wrapper = styled.section`
     }
     
     hr {
-      ${'' /* max-width: 100%; */}
       width: 100%;
-      ${'' /* height: 0.2rem;  */}
-      ${'' /* border: 0.1rem solid #000; */}
-      ${'' /* color: red; */}
+      border: 0.1rem solid #000;
     }
   }
+
   .product-images {
     display: flex;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center; 
   }
+
   .product-data-info {
-      ${'' /* margin-top:4rem; */}
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      ${'' /* border-style: dotted; */}
       font-size: 1.8rem;
+
       span {
         font-weight: bold;
       }
     }
-  ${'' /* .page_loading {
-    font-size: 25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */}
-  @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    padding: 0 5rem;
 
-    .product-data {
-    width:100%;
-    gap: 1rem;
-    }
+    @media (max-width: 768px) {
+  /* styles for screens with a maximum width of 768px */
+  .container {
+    padding-left: 5rem;
   }
+  .product-data {
+    width: 100%;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* styles for screens with a minimum width of 768px and a maximum width of 1024px */
+  .container {
+    padding-left: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* styles for screens with a minimum width of 1024px */
+  .container {
+    padding-left: 10rem;
+  }
+}
+
 `;
 
 export default SingleProduct;
