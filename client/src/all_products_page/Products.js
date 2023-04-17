@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
-import products from './data/Product_data';
-import './components/ProductPage.css';
-import images from './components/images/hero.jpg';
+import products from '../data/Product_data';
+import '../all_products_page/ProductPage.css';
+import images from '../components/images/hero.jpg';
 import { useLocation } from "react-router-dom"
 
 

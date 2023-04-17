@@ -17,15 +17,16 @@ const HeroSection = ({ myData }) => {
             On behalf of myself and all of the team, we would 
             like to extend our warmest welcome and best wishes.”
             </p>
-            <NavLink to="#">
-              <Button>show now</Button>
+            <NavLink to="#" >
+              <button className="nav-button">SHOP NOW</button>
             </NavLink>
           </div>
+          
           {/* our homepage image  */}
           <div className="hero-section-image">
             <figure>
               <img
-                src="images/hero.jpg"
+                src="images/hero1.jpg"
                 alt="hero-section-photo"
                 className="img-style"
               />
@@ -38,35 +39,35 @@ const HeroSection = ({ myData }) => {
 };
 
 const Wrapper = styled.section`
-  padding: 10rem 0;
-  img {
+   .hero-section-image img {
     min-width: 10rem;
-    height: 10rem;
+    height: 45rem;
     border-radius: 4%;
-    border: 3px solid #CF9FFF;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-  
-  ${'' /* img:hover{
-  box-shadow: 2px 2px 10px rgb(41, 170, 235),
-  -2px -2px 10px rgb(41, 170, 235);
-  transition: transform 0.9s;
-  transform-style: preserve-3d;
-  -webkit-transform:perspective(400px) rotateY(0); 
-  transform:perspective(400px) rotateY(180deg);
-  border: none;
-} */}
   .hero-section-data {
     p {
-      margin: 2rem 0;
+      margin: 1rem 0 0 2rem;
       font-weight: bold;
+      text-align:justify;
     }
     h2 {
       text-transform: capitalize;
       font-weight: bold;
+      margin: 0 0 1rem 2rem;
     }
     .intro-data {
       margin-bottom: 0;
+    }
+   .nav-button{
+    margin:2rem 0 0 2rem;
+    background-color: #008CBA;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
     }
   }
   .hero-section-image {
@@ -77,22 +78,6 @@ const Wrapper = styled.section`
     justify-content: center;
     align-items: center;
   }
-  figure {
-    position: relative;
-    &::after {
-      content: "";
-      width: 85%;
-      height: 85%;
-      background-color: rgba(81, 56, 238, 0.4);
-      position: absolute;
-      left: 20%;
-      top: -3rem;
-      z-index: -1;
-      border-radius: 4%;
-      border: 2px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-  }
   .img-style {
     width: 100%;
     height: auto;
@@ -100,15 +85,6 @@ const Wrapper = styled.section`
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid {
       gap: 10rem;
-    }
-    figure::after {
-      content: "";
-      width: 50%;
-      height: 100%;
-      left: 0;
-      top: 10%;
-      /* bottom: 10%; */
-      background-color: rgba(81, 56, 238, 0.4);
     }
   }
 `;

@@ -1,55 +1,125 @@
 .signup-form {
   max-width: 500px;
-  margin: 5rem auto;
+  margin: 4rem auto;
+  background-color: #f9f9f9;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.signup-colunm{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-form h2 {
+.signup-form h2 {
   text-align: center;
+  font-size: 2em;
   margin-bottom: 20px;
+  color: #444;
+  text-shadow: 2px 2px #ddd;
+}
+
+.signup-colunm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .form-group {
   margin-bottom: 20px;
+  position: relative;
 }
 
-form label {
+.form-group label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: larger;
-  
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #555; 
 }
 
-form input {
+.form-group input {
+  width: 100%;
+  font-size: 1.3em;
+  padding: 10px 10px 10px 25px;
+  border: none;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.form-group input:focus {
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-group label svg {
+  position: absolute;
+  top: 56%;
+  left: 5px;
+  font-size: 1.2em;
+  color: #888;
+  transition: transform 0.2s ease-in-out;
+}
+
+button[type="submit"] {
   display: block;
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 7px;
-  /* border: 1px solid #ccc; */
-  
-}
-form button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #7372CF;
-  color: white;
+  background-color: blueviolet;
+  color: #fff;
   border: none;
   border-radius: 5px;
-  font-size: 18px;
+  padding: 10px;
+  font-size: 1.2em;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
- form button:hover {
-  background-color:dodgerblue;
+button[type="submit"]:hover {
+  background-color: #007bff;
 }
 
+
+
+@media (max-width: 768px) {
+  .signup-form {
+  max-width: 90%;
+  }
+  
+  .signup-colunm {
+  grid-template-columns: 1fr;
+  }
+  
+  form label {
+  font-size: medium;
+  }
+  
+  form input {
+  font-size: 14px;
+  }
+  
+  form button {
+  font-size: 16px;
+  }
+  }
+  
+  @media (max-width: 480px) {
+  .signup-form {
+  margin: 3rem auto;
+  }
+  
+  form h2 {
+  font-size: 22px;
+  }
+  
+  form label {
+  font-size: 16px;
+  }
+  
+  form input {
+  font-size: 14px;
+  padding: 8px;
+  }
+  
+  form button {
+  padding: 8px 16px;
+  font-size: 16px;
+  }
+  }

@@ -107,7 +107,7 @@ ${"" /* resuable code section  */}
 }
 
 .grid-four-column{
-   grid-template-columns: 1fr 1.2fr .5fr .8fr ;
+   grid-template-columns: repeat(4, 1fr); ;
 }
 
 .grid-five-column{
@@ -128,7 +128,7 @@ ${"" /* resuable code section  */}
       color: #5138ee;
     }
 
-   .caption {
+   ${'' /* .caption {
       position: absolute;
       top: 15%;
       right: 10%;
@@ -138,10 +138,10 @@ ${"" /* resuable code section  */}
       padding: 0.8rem 2rem;
       font-size: 1.2rem;
       border-radius: 2rem;
-    }
+    } */}
 
 input, textarea{
-    max-width: 50rem;
+    ${'' /* max-width: 50rem; */}
     ${'' /* border-radius:40px; */}
     color: ${({ theme }) => theme.colors.black};
     padding: 1.6rem 2.4rem;

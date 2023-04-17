@@ -1,7 +1,5 @@
 /* Global styles */
-
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -11,20 +9,20 @@ body {
 }
 
 /* Address details container */
-
 .address-details-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 50px auto;
+  margin: 50px;
   max-width: 1200px;
 }
 
 /* Address form */
-
 .address-form-container {
   flex-basis: 60%;
-  margin-right: 30px;
+  align-items: center;
+  margin-right: 70px ;
+  margin-left: 70px;
 }
 
 .address-form-header {
@@ -34,11 +32,14 @@ body {
 }
 
 .address-form {
+  background-color: #f2f2f2;
   display: flex;
+  padding: 3rem;
+  border-radius: 4px;
   flex-direction: column;
 }
 
-.form-group {
+.address-form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -49,7 +50,8 @@ body {
   margin-bottom: 5px;
 }
 
-.form-input {
+.address-form-input {
+  text-transform: lowercase;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
@@ -63,10 +65,34 @@ body {
   font-size: 16px;
 }
 
-.form-checkbox {
-  margin-top: 10px;
+/* IT IS CHECK BOX CSS */
+.checkbox-container {
+  display: flex;
 }
 
+.checkbox-input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 2px solid #aaa;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-input:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.checkbox-label {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* IT IS ADDRESS PAGE BUTTON CSS STYLE */
 .place-order-btn {
   background-color: #008CBA;
   color: #fff;
@@ -83,9 +109,9 @@ body {
 }
 
 /* Order summary */
-
 .order-summary-container {
   flex-basis: 40%;
+  /* margin-right: 30px; */
 }
 
 .order-summary-header {
@@ -104,6 +130,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  
 }
 
 .price-detail-label {
@@ -115,33 +142,72 @@ body {
   font-weight: bold;
 }
 
+/* IT IS ADDRESS POPUP PAGE STYLE CSS  */
 .popup-container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
-}
-
-.popup-message {
   background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 1.2rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.popup-close-btn {
+.popup-button {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0;
+  right: 0;
+  padding: 4px;
+  font-size: 2rem;
+  color:red;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-weight: bold;
 }
+
+
+/* Media Queries */
+
+/* For screens smaller than 768px */
+@media only screen and (max-width: 768px) {
+  .address-details-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .address-form-container {
+    width: 100%;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+  }
+  .address-form {
+    width: 100%;
+  }
+  .order-summary-container {
+    margin-top: 30px;
+    width: 100%;
+  }
+}
+
+/* For screens smaller than 576px */
+@media only screen and (max-width: 576px) {
+  .form-input, .form-select {
+    width: 100%;
+  }
+  .place-order-btn {
+    width: 100%;
+  }
+  
+  .order-summary-header {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .price-detail-label {
+    font-size: 12px;
+  }
+  .price-detail-value {
+    font-size: 10px;
+    font-weight: bold;
+  }
+  
+}
+
