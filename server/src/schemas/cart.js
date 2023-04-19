@@ -39,11 +39,19 @@ const CartSchema = new Schema({
             type: Number,
             required: true
         },
+        total_amount:{
+            type: Number,
+            required: true
+        },
         product_desc: {
             type: String,
             required: true
         }
     }],
+    total_price:{
+        type: Number,
+        required: true
+    },
     active: {
         type: Boolean,
         default: true

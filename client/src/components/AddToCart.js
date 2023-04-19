@@ -2,12 +2,13 @@ import { useState } from "react";
 import styled from "styled-components";
 import { FaCheck } from "react-icons/fa";
 import CartAmountToggle from "./CartAmountToggle";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../styles/Button";
 
 const AddToCart = ({ product }) => {
-  const { colors } = product;
+  const navigate = useNavigate();
 
+  const { colors } = product;
   const [color, setColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
@@ -19,12 +20,23 @@ const AddToCart = ({ product }) => {
     setAmount(amount + 1) 
   };
 
-  const addToCart = (product) => {
+  async function addToCart(product){
     const data = {
       userId:'642c4e09f4d1093338494efd',
-      ...product
+      product:{
+        product_id:product.product_id,
+        product_name:product.product_name,
+        product_category:product.product_category,
+        product_qt:amount,
+        actual_price:product.actual_price,
+        total_amount:product.discounted_price * amount,
+        discounted_price:product.discounted_price,
+        discount:product.discount,
+        product_desc:product.product_desc,
+        product_image:product.product_master_image
+      }
     }
-    fetch("/api/cart",{
+    await fetch("/api/cart",{
       method: 'POST',
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -33,9 +45,10 @@ const AddToCart = ({ product }) => {
       body: JSON.stringify(data)
     })
     .then((res) => res.json())
-    .then((response) => response);
+    .then((response) => {
+      navigate("/cart",{state:{userId:'642c4e09f4d1093338494efd',cartData:response.cart}});
+    });
   }
-
   return (
     <Wrapper>
       <div className="colors">
@@ -61,10 +74,7 @@ const AddToCart = ({ product }) => {
         setDecrease={setDecrease}
         setIncrease={setIncrease}
       />
-
-      <NavLink to="/cart" state={{userId:'642c4e09f4d1093338494efd'}}>
-        <Button className="btn" onClick={() => addToCart(product)}>Add To Cart</Button>
-      </NavLink>
+      <Button className="btn" onClick={() => addToCart(product)}>Add To Cart</Button>
     </Wrapper>
   );
 };

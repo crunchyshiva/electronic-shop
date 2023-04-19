@@ -42,7 +42,11 @@ const OrderSchema = new Schema({
         product_desc: {
             type: String,
             required: true
-        }
+        },
+        total_amount:{
+            type: Number,
+            required: true
+        },
     }],
     total_price:{
         type: String,
@@ -58,10 +62,6 @@ const OrderSchema = new Schema({
             required: false
         },
         city:{
-            type: String,
-            required: true
-        },
-        district:{
             type: String,
             required: true
         },
